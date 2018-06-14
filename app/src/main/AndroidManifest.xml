@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".ui_lsn_1.LSN1Activity">
         </activity>
+        <activity android:name=".ui_lsn_2.LSN2Activity">
+        </activity>
     </application>
 
 </manifest>

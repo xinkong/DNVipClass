@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hc.dnvip.ui_lsn_1.LSN1Activity;
+import com.hc.dnvip.ui_lsn_2.LSN2Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
         generateData();
 
         mRvClassContent = findViewById(R.id.rv_class_content);
-        mRvClassContent.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
+        mRvClassContent.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         mRvClassContent.setAdapter(new MyAdapter());
     }
 
     private void generateData() {
         mClassDis.add("高级UI---LSN-1-UI绘制流程详解(整体启动流程)");
+        mClassDis.add("高级UI---LSN-2-1-UI绘制流程_UI具体绘制（测量流程）");
     }
 
 
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
             holder.itemView.setOnClickListener(view->{
                 if(position == 0){
                     startActivity(new Intent(MainActivity.this, LSN1Activity.class));
+                }else if(position == 1){
+                    startActivity(new Intent(MainActivity.this, LSN2Activity.class));
                 }
             });
         }
