@@ -8,7 +8,8 @@
     tools:context=".ui_lsn_2.LSN2Activity">
 
     <com.hc.dnvip.ui_lsn_2.WaterfallFLowLayout
+        android:id="@+id/waterfallFlow"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.hc.dnvip.ui_lsn_2.WaterfallFLowLayout>
+        android:layout_height="wrap_content"/>
     
 </LinearLayout>
