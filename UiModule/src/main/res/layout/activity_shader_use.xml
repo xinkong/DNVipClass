@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui_lsn_1.LSN1Activity">
+    android:orientation="vertical"
+    tools:context=".ui_lsn_3.ShaderUseActivity">
 
     <TextView
+        android:id="@+id/bitmapshader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="源码学习"/>
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:text="位图图像渲染"/>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

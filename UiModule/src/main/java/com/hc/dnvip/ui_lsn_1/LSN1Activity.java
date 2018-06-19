@@ -8,12 +8,15 @@ import android.view.WindowManagerGlobal;
 import android.view.WindowManagerImpl;
 
 import com.android.internal.policy.PhoneWindow;
+import com.bm.library.PhotoView;
 import com.hc.dnvip.R;
 
 /**
  * 高级UI---LSN-1-UI绘制流程详解(整体启动流程)
  */
 public class LSN1Activity extends AppCompatActivity {
+
+    PhotoView mPhotoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,8 @@ public class LSN1Activity extends AppCompatActivity {
          * 源码参考
          * https://www.jianshu.com/p/0f6b4bc86c7b
          */
+        mPhotoView  = findViewById(R.id.activits_start_process);
+        mPhotoView.enable();
         ActivityThread activityThread;
         WindowManagerImpl windowManager;
         WindowManagerGlobal windowManagerGlobal;

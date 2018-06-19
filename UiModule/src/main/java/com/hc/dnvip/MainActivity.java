@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.hc.dnvip.ui_lsn_1.LSN1Activity;
 import com.hc.dnvip.ui_lsn_2.LSN2Activity;
+import com.hc.dnvip.ui_lsn_3.ShaderUseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private void generateData() {
         mClassDis.add("高级UI---LSN-1-UI绘制流程详解(整体启动流程)");
         mClassDis.add("高级UI---LSN-2-1-UI绘制流程_UI具体绘制（测量流程）");
+        mClassDis.add("高级UI---LSN-2-Shader,高级渲染");
     }
 
 
@@ -52,10 +54,16 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull MyViewHolde holder, int position) {
             holder.name.setText(mClassDis.get(position));
             holder.itemView.setOnClickListener(view->{
-                if(position == 0){
-                    startActivity(new Intent(MainActivity.this, LSN1Activity.class));
-                }else if(position == 1){
-                    startActivity(new Intent(MainActivity.this, LSN2Activity.class));
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(MainActivity.this, LSN1Activity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(MainActivity.this, LSN2Activity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(MainActivity.this, ShaderUseActivity.class));
+                        break;
                 }
             });
         }
