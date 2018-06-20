@@ -15,4 +15,26 @@
         android:gravity="center_horizontal"
         android:text="位图图像渲染"/>
 
+    <TextView
+        android:id="@+id/LinearGradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:text="线性渲染"/>
+ <TextView
+        android:id="@+id/SweepGradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:text="梯度渲染"/>
+    <TextView
+        android:id="@+id/RadialGradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:text="环形渲染,水波纹效果"/>
+
 </LinearLayout>

@@ -66,5 +66,11 @@ public class BitmapShaderView extends View {
         BitmapShader shaderMirror2 = new BitmapShader(mBitmap, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
         mPaint.setShader(shaderMirror2);
         canvas.drawRect(new Rect(0,0,0+mBitmap.getWidth(),0+mBitmap.getHeight()*2), mPaint);
+
+        BitmapShader shaderMirror3 = new BitmapShader(mBitmap, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
+        mPaint.setShader(shaderMirror3);
+        canvas.drawRect(new Rect(550,550,550+mBitmap.getWidth(),550+mBitmap.getHeight()*2), mPaint);
+
+
     }
 }
