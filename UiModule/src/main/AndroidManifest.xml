@@ -26,6 +26,12 @@
         </activity>
         <activity android:name=".ui_lsn_3.RadialGradientActivity">
         </activity>
+        <activity android:name=".ui_lsn_4_paint.PaintColorFilterXfermodeActivity">
+        </activity>
+        <activity android:name=".ui_lsn_4_paint.ColorFilterActivity">
+        </activity>
+        <activity android:name=".ui_lsn_4_paint.XfermodeActivity">
+        </activity>
     </application>
 
 </manifest>

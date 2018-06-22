@@ -22,10 +22,7 @@ public class LSN1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lsn1);
-        /**
-         * 源码参考
-         * https://www.jianshu.com/p/0f6b4bc86c7b
-         */
+
         mPhotoView  = findViewById(R.id.activits_start_process);
         mPhotoView.enable();
         ActivityThread activityThread;

@@ -59,7 +59,6 @@ public class RadialGradientView extends View {
 //        canvas.save();3256.5  2078.10
 
         mObjectAnimator = ObjectAnimator.ofInt(this,"radius",10, mWidth);
-        mObjectAnimator.setDuration(10000);
         mObjectAnimator.setInterpolator(new AccelerateInterpolator());
         mObjectAnimator.start();
         mObjectAnimator.addListener(new Animator.AnimatorListener(){
