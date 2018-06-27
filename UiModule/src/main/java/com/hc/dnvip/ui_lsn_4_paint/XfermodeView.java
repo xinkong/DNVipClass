@@ -12,7 +12,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.hc.dnvip.R;
@@ -70,7 +69,7 @@ public class XfermodeView extends View {
     }
 
     private void startAnim() {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, mBitmapSrc.getWidth());
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, mBitmapSrc.getWidth(),0);
         valueAnimator.setDuration(6000);
         valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -83,4 +82,8 @@ public class XfermodeView extends View {
         valueAnimator.start();
     }
 
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+    }
 }

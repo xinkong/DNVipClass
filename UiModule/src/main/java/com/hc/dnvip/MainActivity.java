@@ -15,6 +15,8 @@ import com.hc.dnvip.ui_lsn_1.LSN1Activity;
 import com.hc.dnvip.ui_lsn_2.LSN2Activity;
 import com.hc.dnvip.ui_lsn_3.ShaderUseActivity;
 import com.hc.dnvip.ui_lsn_4_paint.PaintColorFilterXfermodeActivity;
+import com.hc.dnvip.ui_lsn_5_canvas.CanvasActivity;
+import com.hc.dnvip.ui_lsn_6_canvas_drawable.CanvasDrawableActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         mClassDis.add("高级UI---UI绘制流程_UI具体绘制（测量流程）");
         mClassDis.add("高级UI---Shader,高级渲染");
         mClassDis.add("高级UI---滤镜,XFERMODE");
+        mClassDis.add("高级UI---Lsn5_Canvas");
+        mClassDis.add("高级UI---Canvas-Drawable实际案例操作");
     }
 
 
@@ -69,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         startActivity(new Intent(MainActivity.this, PaintColorFilterXfermodeActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, CanvasActivity.class));
+                        break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, CanvasDrawableActivity.class));
                         break;
                 }
             });

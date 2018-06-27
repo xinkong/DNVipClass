@@ -32,6 +32,10 @@
         </activity>
         <activity android:name=".ui_lsn_4_paint.XfermodeActivity">
         </activity>
+        <activity android:name=".ui_lsn_5_canvas.CanvasActivity">
+        </activity>
+        <activity android:name=".ui_lsn_6_canvas_drawable.CanvasDrawableActivity">
+        </activity>
     </application>
 
 </manifest>
