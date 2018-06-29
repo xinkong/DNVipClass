@@ -17,6 +17,7 @@ import com.hc.dnvip.ui_lsn_3.ShaderUseActivity;
 import com.hc.dnvip.ui_lsn_4_paint.PaintColorFilterXfermodeActivity;
 import com.hc.dnvip.ui_lsn_5_canvas.CanvasActivity;
 import com.hc.dnvip.ui_lsn_6_canvas_drawable.CanvasDrawableActivity;
+import com.hc.dnvip.ui_lsn_7_Bezier.BezierQQActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mClassDis.add("高级UI---滤镜,XFERMODE");
         mClassDis.add("高级UI---Lsn5_Canvas");
         mClassDis.add("高级UI---Canvas-Drawable实际案例操作");
+        mClassDis.add("高级UI---贝塞尔曲线 QQ气泡效果");
     }
 
 
@@ -79,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         startActivity(new Intent(MainActivity.this, CanvasDrawableActivity.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, BezierQQActivity.class));
                         break;
                 }
             });

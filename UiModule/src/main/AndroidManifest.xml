@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".ui_lsn_6_canvas_drawable.CanvasDrawableActivity">
         </activity>
+        <activity android:name=".ui_lsn_7_Bezier.BezierQQActivity">
+        </activity>
     </application>
 
 </manifest>

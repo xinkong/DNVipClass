@@ -99,9 +99,6 @@ public class GallaryHorizontalScrollView extends HorizontalScrollView {
                 iv.setImageLevel(0);
             }
         }
-
-
-
     }
 
     //添加图片的方法
