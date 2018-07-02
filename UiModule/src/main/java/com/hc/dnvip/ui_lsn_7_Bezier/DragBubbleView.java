@@ -160,7 +160,7 @@ public class DragBubbleView extends View {
         if (mStateType == STATE_CONNECT) {//画大圆小圆连接线
 
             //绘制小圆
-            canvas.drawCircle(mSmallCircleCenter.x,mSmallCircleCenter.y,mSmallCircleRadius,mPaint);
+            canvas.drawCircle(mSmallCircleCenter.x, mSmallCircleCenter.y, mSmallCircleRadius, mPaint);
 
             //计算出sin cos 的值
             float sinValue = (mBigCircleCenter.y - mSmallCircleCenter.y) / mCenterDistance;
@@ -170,28 +170,33 @@ public class DragBubbleView extends View {
             float smallAx = mSmallCircleCenter.x - mSmallCircleRadius * sinValue;
             float smallAy = mSmallCircleCenter.y + mSmallCircleRadius * cosValue;
 
-            float smallBx =mSmallCircleCenter.x + mSmallCircleRadius * sinValue;
-            float smallBy = mSmallCircleCenter.y - mSmallCircleRadius * cosValue;
+            canvas.drawText("a", smallAx, smallAy, mTextPaint);
 
+            float smallBx = mSmallCircleCenter.x + mSmallCircleRadius * sinValue;
+            float smallBy = mSmallCircleCenter.y - mSmallCircleRadius * cosValue;
+            canvas.drawText("b", smallBx, smallBy, mTextPaint);
             //大圆CD点坐标
             float bigCx = mBigCircleCenter.x - mBigCircleRadius * sinValue;
             float bigCy = mBigCircleCenter.y + mBigCircleRadius * cosValue;
+            canvas.drawText("c", bigCx, bigCy, mTextPaint);
 
             float bigDx = mBigCircleCenter.x + mBigCircleRadius * sinValue;
             float bigDy = mBigCircleCenter.y - mBigCircleRadius * cosValue;
+            canvas.drawText("d", bigDx, bigDy, mTextPaint);
 
             //两个圆中心点坐标(锚点坐标)
-            float disX = (mBigCircleCenter.x + mSmallCircleCenter.x)/2;
-            float disY = (mBigCircleCenter.y + mSmallCircleCenter.y) /2;
+            float disX = (mBigCircleCenter.x + mSmallCircleCenter.x) / 2;
+            float disY = (mBigCircleCenter.y + mSmallCircleCenter.y) / 2;
+            canvas.drawText("z", disX, disY, mTextPaint);
 
-            //绘制上办个曲线
+            //绘制曲线
             Path path = new Path();
-            path.moveTo(smallAx,smallAy);
-            path.quadTo(disX,disY,bigCx,bigCy);
-            path.lineTo(bigDx,bigDy);
-            path.quadTo(disX,disY,smallBx,smallBy);
+            path.moveTo(smallAx, smallAy);
+            path.quadTo(disX, disY, bigCx, bigCy);
+            path.lineTo(bigDx, bigDy);
+            path.quadTo(disX, disY, smallBx, smallBy);
             path.close();
-            canvas.drawPath(path,mPaint);
+            canvas.drawPath(path, mPaint);
 
             //绘制大圆
             drawBigCircle(canvas);
