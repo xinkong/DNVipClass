@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
@@ -52,6 +53,11 @@ public class DragBubbleView extends View {
     private Paint mPaint;
 
     /**
+     * 绘制文字的画笔
+     */
+    private Paint mTextPaint;
+
+    /**
      * 需要绘制的颜色
      */
     private int mDrawColor;
@@ -79,7 +85,8 @@ public class DragBubbleView extends View {
     /**
      * 大圆半径
      */
-    private float mBigCircleRadius =  TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());;
+    private float mBigCircleRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+    ;
     /**
      * 小圆的中心点
      */
@@ -88,7 +95,7 @@ public class DragBubbleView extends View {
     /**
      * 小圆半径
      */
-    private float mSmallCircleRadius;
+    private float mSmallCircleRadius = 10f;
 
     /**
      * 两个圆的圆心距
@@ -119,10 +126,13 @@ public class DragBubbleView extends View {
         mPaint.setColor(mDrawColor);
         mPaint.setStyle(Paint.Style.FILL);
 
-
+        mTextPaint = new Paint();
+        mTextPaint.setAntiAlias(true);
+        mTextPaint.setColor(0xff000000);
+        mTextPaint.setTextSize(mHintMsgTextSize);
+        mTextPaint.setStyle(Paint.Style.FILL);
         mHintMsgSize = new Rect();
-        mPaint.setTextSize(mHintMsgTextSize);
-        mPaint.getTextBounds(mHintMsg,0,mHintMsg.length(),mHintMsgSize);
+        mTextPaint.getTextBounds(mHintMsg, 0, mHintMsg.length(), mHintMsgSize);
     }
 
     @Override
@@ -143,12 +153,48 @@ public class DragBubbleView extends View {
 
 
         //画大圆,提示文字
-        if(mStateType == STATE_STATIC || mStateType == STATE_SEPARATE) {
+        if (mStateType == STATE_STATIC || mStateType == STATE_SEPARATE) {
             drawBigCircle(canvas);
         }
 
-        if(mStateType == STATE_CONNECT){//画大圆小圆连接线
+        if (mStateType == STATE_CONNECT) {//画大圆小圆连接线
 
+            //绘制小圆
+            canvas.drawCircle(mSmallCircleCenter.x,mSmallCircleCenter.y,mSmallCircleRadius,mPaint);
+
+            //计算出sin cos 的值
+            float sinValue = (mBigCircleCenter.y - mSmallCircleCenter.y) / mCenterDistance;
+            float cosValue = (mBigCircleCenter.x - mSmallCircleCenter.x) / mCenterDistance;
+
+            //小圆AB点坐标
+            float smallAx = mSmallCircleCenter.x - mSmallCircleRadius * sinValue;
+            float smallAy = mSmallCircleCenter.y + mSmallCircleRadius * cosValue;
+
+            float smallBx =mSmallCircleCenter.x + mSmallCircleRadius * sinValue;
+            float smallBy = mSmallCircleCenter.y - mSmallCircleRadius * cosValue;
+
+            //大圆CD点坐标
+            float bigCx = mBigCircleCenter.x - mBigCircleRadius * sinValue;
+            float bigCy = mBigCircleCenter.y + mBigCircleRadius * cosValue;
+
+            float bigDx = mBigCircleCenter.x + mBigCircleRadius * sinValue;
+            float bigDy = mBigCircleCenter.y - mBigCircleRadius * cosValue;
+
+            //两个圆中心点坐标(锚点坐标)
+            float disX = (mBigCircleCenter.x + mSmallCircleCenter.x)/2;
+            float disY = (mBigCircleCenter.y + mSmallCircleCenter.y) /2;
+
+            //绘制上办个曲线
+            Path path = new Path();
+            path.moveTo(smallAx,smallAy);
+            path.quadTo(disX,disY,bigCx,bigCy);
+            path.lineTo(bigDx,bigDy);
+            path.quadTo(disX,disY,smallBx,smallBy);
+            path.close();
+            canvas.drawPath(path,mPaint);
+
+            //绘制大圆
+            drawBigCircle(canvas);
         }
 
     }
@@ -156,30 +202,61 @@ public class DragBubbleView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mBigCircleCenter.x = event.getX();
                 mBigCircleCenter.y = event.getY();
-                invalidate();
+                //计算圆心距:
+                mCenterDistance = (float) Math.hypot(mBigCircleCenter.x - mSmallCircleCenter.x, mBigCircleCenter.y - mSmallCircleCenter.y);
+                if (mCenterDistance <= mSeparateDistance * mBigCircleRadius) {//处于连接状态,为后面移动铺路
+                    mStateType = STATE_CONNECT;
+                } else {//超过最大距离,在按下屏幕时应该是静止状态(认为没有点在目标上)
+                    mStateType = STATE_STATIC;
+                }
+
+                //思路2:判断当前点击的xy是否在大圆范围内
+
+                //思路3
+
+
                 break;
 
             case MotionEvent.ACTION_MOVE:
 
+                if (mStateType != STATE_STATIC) {
+                    mBigCircleCenter.x = event.getX();
+                    mBigCircleCenter.y = event.getY();
+                    //计算圆心距:
+                    mCenterDistance = (float) Math.hypot(mBigCircleCenter.x - mSmallCircleCenter.x, mBigCircleCenter.y - mSmallCircleCenter.y);
+                    if (mCenterDistance <= mSeparateDistance * mBigCircleRadius) {
+                        mStateType = STATE_CONNECT;
+                    } else {//分离
+                        mStateType = STATE_SEPARATE;
+                    }
+
+                    invalidate();
+                }
+
+
+                break;
+
+            case MotionEvent.ACTION_UP:
+
                 break;
         }
 
-        return super.onTouchEvent(event);
+        return true;
     }
 
     /**
      * 绘制大圆
+     *
      * @param canvas
      */
     private void drawBigCircle(Canvas canvas) {
         mPaint.setColor(mDrawColor);
-        canvas.drawCircle(mBigCircleCenter.x, mBigCircleCenter.y,mBigCircleRadius,mPaint);
-        mPaint.setColor(0xff000000);
-        mPaint.setTextSize(mHintMsgTextSize);
-        canvas.drawText(mHintMsg,mBigCircleCenter.x-mHintMsgSize.width()/2,mBigCircleCenter.y+mHintMsgSize.height()/2,mPaint);
+        canvas.drawCircle(mBigCircleCenter.x, mBigCircleCenter.y, mBigCircleRadius, mPaint);
+
+        canvas.drawText(mHintMsg, mBigCircleCenter.x - mHintMsgSize.width() / 2, mBigCircleCenter.y + mHintMsgSize.height() / 2, mTextPaint);
     }
 }
