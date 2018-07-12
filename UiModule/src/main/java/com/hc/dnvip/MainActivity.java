@@ -18,7 +18,9 @@ import com.hc.dnvip.ui_lsn_4_paint.PaintColorFilterXfermodeActivity;
 import com.hc.dnvip.ui_lsn_5_canvas.CanvasActivity;
 import com.hc.dnvip.ui_lsn_6_canvas_drawable.CanvasDrawableActivity;
 import com.hc.dnvip.ui_lsn_7_Bezier.BezierQQActivity;
+import com.hc.dnvip.ui_lsn_8_PathMeasure.PathMeasureActivity;
 
+import java.nio.file.PathMatcher;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         mClassDis.add("高级UI---Lsn5_Canvas");
         mClassDis.add("高级UI---Canvas-Drawable实际案例操作");
         mClassDis.add("高级UI---贝塞尔曲线 QQ气泡效果");
+        mClassDis.add("高级UI---PathMeasure");
     }
 
 
@@ -84,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 6:
                         startActivity(new Intent(MainActivity.this, BezierQQActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, PathMeasureActivity.class));
                         break;
                 }
             });
