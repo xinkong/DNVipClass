@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hc.dnvip.ui_lsn_1.LSN1Activity;
+import com.hc.dnvip.ui_lsn_10_loadAnim.LoadAnimActivity;
 import com.hc.dnvip.ui_lsn_2.LSN2Activity;
 import com.hc.dnvip.ui_lsn_3.ShaderUseActivity;
 import com.hc.dnvip.ui_lsn_4_paint.PaintColorFilterXfermodeActivity;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mClassDis.add("高级UI---Lsn5_Canvas");
         mClassDis.add("高级UI---Canvas-Drawable实际案例操作");
         mClassDis.add("高级UI---贝塞尔曲线 QQ气泡效果");
+        mClassDis.add("高级UI---属性动画,加载动画");
     }
 
 
@@ -84,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 6:
                         startActivity(new Intent(MainActivity.this, BezierQQActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, LoadAnimActivity.class));
                         break;
                 }
             });
