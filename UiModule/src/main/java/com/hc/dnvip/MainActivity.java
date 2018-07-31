@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hc.dnvip.ui_lsn_1.LSN1Activity;
-import com.hc.dnvip.ui_lsn_10_loadAnim.LoadAnimActivity;
 import com.hc.dnvip.ui_lsn_2.LSN2Activity;
 import com.hc.dnvip.ui_lsn_3.ShaderUseActivity;
 import com.hc.dnvip.ui_lsn_4_paint.PaintColorFilterXfermodeActivity;
@@ -89,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 7:
                         startActivity(new Intent(MainActivity.this, LoadAnimActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, PathMeasureActivity.class));
                         break;
                 }
             });
