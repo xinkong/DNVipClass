@@ -1,4 +1,4 @@
-package com.hc.dnvip.ui_lsn_10_loadAnim;
+package com.hc.dnvip.ui_lsn_12_loadAnim;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

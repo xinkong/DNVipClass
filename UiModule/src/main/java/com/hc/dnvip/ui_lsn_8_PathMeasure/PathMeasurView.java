@@ -131,10 +131,13 @@ public class PathMeasurView extends View {
         PathMeasure measure = new PathMeasure(mPath, false);
         measure.getPosTan(measure.getLength()*mCurrentPosition,mPos,mTan);
 
-        float sweepDegrees = (float) (Math.atan2(mTan[1],mTan[0])*180/Math.PI);
-
         //矩阵充值
         mMatrix.reset();
+
+        float sweepDegrees = (float) (Math.atan2(mTan[1],mTan[0])*180/Math.PI);
+
+//        measure.getMatrix()
+
         //旋转
         mMatrix.postRotate(sweepDegrees,mBitmap.getWidth()/2,mBitmap.getHeight()/2);
         //平移

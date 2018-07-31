@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui_lsn_10_loadAnim.LoadAnimActivity">
+    tools:context=".ui_lsn_12_loadAnim.LoadAnimActivity">
 
     <ImageView
         android:id="@+id/iv"
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:src="@mipmap/bg"/>
 
-    <com.hc.dnvip.ui_lsn_10_loadAnim.LoadingView
+    <com.hc.dnvip.ui_lsn_12_loadAnim.LoadingView
         android:id="@+id/loadingview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

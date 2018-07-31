@@ -2,6 +2,7 @@ package com.hc.dnvip;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hc.dnvip.ui_lsn_1.LSN1Activity;
-import com.hc.dnvip.ui_lsn_10_loadAnim.LoadAnimActivity;
+import com.hc.dnvip.ui_lsn_10_event.EventActivity;
+import com.hc.dnvip.ui_lsn_12_loadAnim.LoadAnimActivity;
 import com.hc.dnvip.ui_lsn_2.LSN2Activity;
 import com.hc.dnvip.ui_lsn_3.ShaderUseActivity;
 import com.hc.dnvip.ui_lsn_4_paint.PaintColorFilterXfermodeActivity;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         mRvClassContent = findViewById(R.id.rv_class_content);
         mRvClassContent.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRvClassContent.setAdapter(new MyAdapter());
+
+        NestedScrollView v ;
     }
 
 
@@ -50,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         mClassDis.add("高级UI---Lsn5_Canvas");
         mClassDis.add("高级UI---Canvas-Drawable实际案例操作");
         mClassDis.add("高级UI---贝塞尔曲线 QQ气泡效果");
-        mClassDis.add("高级UI---Pathmeasure");
+        mClassDis.add("高级UI---PathMeasure");
+        mClassDis.add("高级UI---事件分发");
         mClassDis.add("高级UI---属性动画,加载动画");
     }
 
@@ -93,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, PathMeasureActivity.class));
                         break;
                     case 8:
+                        startActivity(new Intent(MainActivity.this, EventActivity.class));
+                        break;
+                    case 9:
                         startActivity(new Intent(MainActivity.this, LoadAnimActivity.class));
                         break;
                 }

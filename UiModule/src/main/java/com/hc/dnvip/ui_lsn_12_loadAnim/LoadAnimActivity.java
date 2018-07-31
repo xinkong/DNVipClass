@@ -1,10 +1,8 @@
-package com.hc.dnvip.ui_lsn_10_loadAnim;
+package com.hc.dnvip.ui_lsn_12_loadAnim;
 
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import com.hc.dnvip.R;
 
