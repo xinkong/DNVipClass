@@ -17,13 +17,31 @@ import android.view.animation.OvershootInterpolator;
 
 public class LoadingView extends View {
 
+    /**
+     * 执行的动画
+     */
     private ValueAnimator mAnimator;
+    /**
+     * 画笔
+     */
     private Paint mPaint;
-    private int[] mColors = new int[]{0xffff0000, 0xff00ff00, 0xff0000ff, 0xffff0000, 0xff00ff00, 0xff0000ff};
+    /**
+     * 颜色值
+     */
+    private int[] mColors = new int[]{0xffff0000,0xff990077, 0xff00ff00, 0xff0000ff, 0xffff0000, 0xff00ff00, 0xff0000ff};
+    /**
+     * 外围小圆半径大小
+     */
     private float mPointRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
+    /**
+     * 圆环大小
+     */
     private float mRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
     //大圆转动的角度
     private float mCircleAngle = 0;
+    /**
+     * 当前控件的中心点
+     */
     private PointF mConterPoint;
     //扩展View的最大半径
     private float mExtedRadius;
@@ -131,7 +149,7 @@ public class LoadingView extends View {
 
     private void drawCircle(Canvas canvas) {
         //计算一个圆应该分成多少分
-        float oneAngle = (float) (Math.PI * 2 * 1.0f / mColors.length);
+        float oneAngle = (float) (Math.PI * 2  / mColors.length);
         //画出外围圆环
         for (int i = 0; i < mColors.length; i++) {
             mPaint.setColor(mColors[i]);
@@ -147,7 +165,7 @@ public class LoadingView extends View {
     }
 
     /**
-     * 收缩动画
+     * 收缩动画1
      */
     private class ShrinkAnim extends DrawAnim {
         public ShrinkAnim() {
