@@ -11,9 +11,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ui_lsn_1.LSN1Activity" />
@@ -31,7 +31,8 @@
         <activity android:name=".ui_lsn_7_Bezier.BezierQQActivity" />
         <activity android:name=".ui_lsn_8_PathMeasure.PathMeasureActivity" />
         <activity android:name=".ui_lsn_10_event.EventActivity" />
-        <activity android:name=".ui_lsn_12_loadAnim.LoadAnimActivity"></activity>
+        <activity android:name=".ui_lsn_12_loadAnim.LoadAnimActivity" />
+        <activity android:name=".ui_lsn_18_drawerLayout.DrawerLayoutActivity"></activity>
     </application>
 
 </manifest>

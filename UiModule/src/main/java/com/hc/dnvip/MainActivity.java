@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.hc.dnvip.ui_lsn_1.LSN1Activity;
 import com.hc.dnvip.ui_lsn_10_event.EventActivity;
 import com.hc.dnvip.ui_lsn_12_loadAnim.LoadAnimActivity;
+import com.hc.dnvip.ui_lsn_18_drawerLayout.DrawerLayoutActivity;
 import com.hc.dnvip.ui_lsn_2.LSN2Activity;
 import com.hc.dnvip.ui_lsn_3.ShaderUseActivity;
 import com.hc.dnvip.ui_lsn_4_paint.PaintColorFilterXfermodeActivity;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mClassDis.add("高级UI---PathMeasure");
         mClassDis.add("高级UI---事件分发");
         mClassDis.add("高级UI---属性动画,加载动画");
+        mClassDis.add("高级UI---自定义侧滑菜单");
     }
 
 
@@ -102,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 9:
                         startActivity(new Intent(MainActivity.this, LoadAnimActivity.class));
+                        break;
+                    case 10:
+                        startActivity(new Intent(MainActivity.this, DrawerLayoutActivity.class));
                         break;
                 }
             });
