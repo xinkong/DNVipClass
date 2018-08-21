@@ -23,6 +23,7 @@ import com.hc.dnvip.ui_lsn_5_canvas.CanvasActivity;
 import com.hc.dnvip.ui_lsn_6_canvas_drawable.CanvasDrawableActivity;
 import com.hc.dnvip.ui_lsn_7_Bezier.BezierQQActivity;
 import com.hc.dnvip.ui_lsn_8_PathMeasure.PathMeasureActivity;
+import com.hc.dnvip.ui_study_myself.heart.QiXiHeartActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         mClassDis.add("高级UI---事件分发");
         mClassDis.add("高级UI---属性动画,加载动画");
         mClassDis.add("高级UI---自定义侧滑菜单");
+        mClassDis.add("自学---心行控件");
     }
 
 
@@ -107,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 10:
                         startActivity(new Intent(MainActivity.this, DrawerLayoutActivity.class));
+                        break;
+                    case 11:
+                        startActivity(new Intent(MainActivity.this, QiXiHeartActivity.class));
                         break;
                 }
             });
