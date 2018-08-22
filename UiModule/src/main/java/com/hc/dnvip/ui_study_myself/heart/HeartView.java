@@ -23,7 +23,7 @@ public class HeartView extends View{
     private Paint mPaint;
     private Paint mTextPaint;
     private Rect mTextBounds = new Rect();
-    private String mText = "哈哈";
+    private String mText = "Love";
     //绘制路径
     private Path mPath;
     //随机生成的颜色
@@ -82,7 +82,7 @@ public class HeartView extends View{
         animatorSet.playTogether(animatorX,animatorY,animatorAlpha);
         animatorSet.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationEnd(Animator animation) {
+            public    void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 if(mLisener!=null){
                     mLisener.onFinish(HeartView.this);
@@ -92,7 +92,7 @@ public class HeartView extends View{
         animatorSet.setDuration(2000);
         animatorSet.start();
 
-//        PropertyValuesHolder holder2 = PropertyValuesHolder.ofFloat("scaleX", 0, 1f);
+        //        PropertyValuesHolder holder2 = PropertyValuesHolder.ofFloat("scaleX", 0, 1f);
 //        PropertyValuesHolder holder3 = PropertyValuesHolder.ofFloat("scaleY", 0, 1f);
 //        PropertyValuesHolder holder1 = PropertyValuesHolder.ofFloat("alpha", 1f, 0f);
 //        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(this,  holder2, holder3);
