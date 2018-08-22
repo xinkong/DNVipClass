@@ -13,6 +13,7 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 import java.util.Random;
@@ -23,14 +24,15 @@ public class HeartView extends View{
     private Paint mPaint;
     private Paint mTextPaint;
     private Rect mTextBounds = new Rect();
-    private String mText = "Love";
+    private String mText = "呵呵";
     //绘制路径
     private Path mPath;
     //随机生成的颜色
     private int[] colors = new int[]{0xFFB95419, 0xFFAA9E18, 0xFF75BD1D, 0xFF891475
             , 0xFFD90CB7, 0xFF880A29, 0xFFF7020E, 0xFFE8030E};
 
-    private float realWidth = 100,realHeight=100;
+    private float realWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,35,getResources().getDisplayMetrics())
+            ,realHeight=TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,35,getResources().getDisplayMetrics());
 
 
 
@@ -63,7 +65,7 @@ public class HeartView extends View{
         mPath = new Path();
 
         mTextPaint = new Paint();
-        mTextPaint.setTextSize(30);
+        mTextPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,10,getResources().getDisplayMetrics()));
         mTextPaint.setColor(0xff000000);
         mTextPaint.getTextBounds(mText,0,mText.length(),mTextBounds);
 
